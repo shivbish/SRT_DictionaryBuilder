@@ -6,9 +6,9 @@ st.set_page_config(
     page_title="SRT Word Mapper", page_icon="😉", layout="wide"
 )
 
-st.title("Punjabi Roman SRT Dictionary Builder")
+st.title("Roman SRT Dictionary Builder")
 st.write(
-    "Upload matching Punjabi (Gurmukhi) and Roman Punjabi `.srt` subtitle files to automatically generate a mapped JSON dictionary."
+    "Upload matching Native Words and Roman Words `.srt` subtitle files to automatically generate a mapped JSON dictionary."
 )
 
 
@@ -71,12 +71,12 @@ col1, col2 = st.columns(2)
 
 with col1:
     punjabi_file = st.file_uploader(
-        "Upload Punjabi SRT (Gurmukhi)", type=["srt"], key="punjabi"
+        "Upload Native Words SRT ", type=["srt"], key="punjabi"
     )
 
 with col2:
     roman_file = st.file_uploader(
-        "Upload Roman Punjabi SRT", type=["srt"], key="roman"
+        "Upload Roman Words SRT", type=["srt"], key="roman"
     )
 
 if punjabi_file and roman_file:
@@ -108,7 +108,7 @@ if punjabi_file and roman_file:
         with tab1:
             st.dataframe(
                 [
-                    {"Punjabi (Gurmukhi)": k, "Roman Punjabi": v}
+                    {"Native Words": k, "Roman Words": v}
                     for k, v in word_map.items()
                 ],
                 use_container_width=True,
